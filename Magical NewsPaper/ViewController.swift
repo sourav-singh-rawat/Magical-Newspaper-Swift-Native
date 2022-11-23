@@ -26,7 +26,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         super.viewWillAppear(animated)
         
         // Create a session configuration
-        let configuration = ARWorldTrackingConfiguration()
+        let configuration = ARImageTrackingConfiguration()
+        
+        if let imageToTrack = ARReferenceImage.referenceImages(inGroupNamed: "News", bundle: Bundle.main) {
+            configuration.trackingImages = imageToTrack
+            
+            configuration.maximumNumberOfTrackedImages = 1
+        }
 
         // Run the view's session
         sceneView.session.run(configuration)
@@ -51,6 +57,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     func createPlane(withImageAnchor imageAnchor: ARImageAnchor) -> SCNNode{
         let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
+        
+        let planeMaterial = SCNMaterial()
+        planeMaterial.diffuse.contents = UIColor(white: 1.0, alpha: 0.8)
+        
+        plane.materials = [planeMaterial]
         
         let planeNode = SCNNode(geometry: plane)
         planeNode.eulerAngles.x = -.pi/2
