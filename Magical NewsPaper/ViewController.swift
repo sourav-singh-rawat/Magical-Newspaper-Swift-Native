@@ -48,24 +48,51 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     // MARK: - ARSCNViewDelegate
   
     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        guard let imageAnchor = anchor as? ARImageAnchor else { return nil }
+        let node = SCNNode()
         
-        let planeNode = createPlane(withImageAnchor: imageAnchor)
+        if let imageAnchor = anchor as? ARImageAnchor {
+            
+            let scene = createVideoScene()
+            
+            let planeNode = createPlane(
+                withImageAnchor: imageAnchor,
+                withContents: scene
+            )
+            
+            node.addChildNode(planeNode)
+        }
         
-        return planeNode
+        return node
     }
     
-    func createPlane(withImageAnchor imageAnchor: ARImageAnchor) -> SCNNode{
-        let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
+    func createPlane(withImageAnchor imageAnchor: ARImageAnchor,withContents contents:Any?) -> SCNNode{
+        let plane = SCNPlane(
+            width: imageAnchor.referenceImage.physicalSize.width,
+            height: imageAnchor.referenceImage.physicalSize.height
+        )
         
-        let planeMaterial = SCNMaterial()
-        planeMaterial.diffuse.contents = UIColor(white: 1.0, alpha: 0.8)
-        
-        plane.materials = [planeMaterial]
+        plane.firstMaterial?.diffuse.contents = contents
         
         let planeNode = SCNNode(geometry: plane)
         planeNode.eulerAngles.x = -.pi/2
         
         return planeNode
+    }
+    
+    func createVideoScene() -> SKScene{
+        let video2DNode = SKVideoNode(fileNamed: "Harry-Potter.mp4")
+        video2DNode.play()
+        
+        let scene = SKScene(size: CGSize(width: 720, height: 420))
+        
+        //Position to center and cover whole area
+        video2DNode.position = CGPoint(x: scene.size.width/2, y: scene.size.height/2)
+
+        //Flip
+        video2DNode.yScale = -1.0
+        
+        scene.addChild(video2DNode)
+    
+        return scene
     }
 }
