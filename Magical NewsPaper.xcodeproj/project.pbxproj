@@ -13,6 +13,7 @@
 		3F13DD50292E781B00C447DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F13DD4E292E781B00C447DD /* Main.storyboard */; };
 		3F13DD52292E781C00C447DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F13DD51292E781C00C447DD /* Assets.xcassets */; };
 		3F13DD55292E781C00C447DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F13DD53292E781C00C447DD /* LaunchScreen.storyboard */; };
+		3F13DD5E292EF92A00C447DD /* Harry-Potter.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3F13DD5D292EF92A00C447DD /* Harry-Potter.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		3F13DD4F292E781B00C447DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F13DD51292E781C00C447DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F13DD54292E781C00C447DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3F13DD5D292EF92A00C447DD /* Harry-Potter.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Harry-Potter.mp4"; path = "../../../../Downloads/Harry-Potter.mp4"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 		3F13DD47292E781B00C447DD /* Magical NewsPaper */ = {
 			isa = PBXGroup;
 			children = (
+				3F13DD5D292EF92A00C447DD /* Harry-Potter.mp4 */,
 				3F13DD48292E781B00C447DD /* AppDelegate.swift */,
 				3F13DD4A292E781B00C447DD /* art.scnassets */,
 				3F13DD4C292E781B00C447DD /* ViewController.swift */,
@@ -126,6 +129,7 @@
 				3F13DD4B292E781B00C447DD /* art.scnassets in Resources */,
 				3F13DD55292E781C00C447DD /* LaunchScreen.storyboard in Resources */,
 				3F13DD52292E781C00C447DD /* Assets.xcassets in Resources */,
+				3F13DD5E292EF92A00C447DD /* Harry-Potter.mp4 in Resources */,
 				3F13DD50292E781B00C447DD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
